@@ -1,0 +1,8 @@
+openpyxl
+pandas
+requests
+datetime
+tqdm
+math
+pickle
+os

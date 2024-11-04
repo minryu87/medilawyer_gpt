@@ -103,14 +103,14 @@ for i, row in tqdm(medilawyer_data_TB.iloc[start_index:].iterrows(), total=now_d
     if response[0] == "error":
         saved_results.append([row['Idx'], contents, row['Um_Def'], 'error', 'False', row['Um_Ins'], 'error', 'False', 
             'error', '', 'error', '', 'error', '', 'error', '', 'error', '', 'error', '', 'error', '', 
-            'error', '', 'error', '', 'error', ''])
+            'error', '', 'error', '', 'error', '', 'error', ''])
     else:
         def_tf = 'True' if str(row['Um_Def']).strip().lower() == str(response[0]).strip().lower() else 'False'
         ins_tf = 'True' if str(row['Um_Ins']).strip().lower() == str(response[6]).strip().lower() else 'False'
         saved_results.append([
             row['Idx'], contents, row['Um_Def'], response[0], def_tf, row['Um_Ins'], response[6], ins_tf,
             response[0], '', response[1], '', response[2], '', response[3], '', response[4], '', response[5], '', 
-            response[6], '', response[7], '', response[8], '', response[9], ''
+            response[6], '', response[7], '', response[8], '', response[9], '', response[10], ''
         ])
     
     # 중간 진행 상태 저장
@@ -123,7 +123,7 @@ columns = [
     '명예훼손죄 여부', 'Remarks1', '명예훼손죄 판단 요약', 'Remarks2', '공연성 판단 근거', 'Remarks3', 
     '사실의 적시 판단 근거', 'Remarks4', '비방의 목적 판단 근거', 'Remarks5', '피해자의 특정 판단 근거', 
     'Remarks6', '모욕죄 여부', 'Remarks7', '모욕죄 판단 요약', 'Remarks8', '공연성 판단 근거', 
-    'Remarks9', '사람에 대한 모욕 판단 근거', 'Remarks10'
+    'Remarks9', '사람에 대한 모욕 판단 근거', 'Remarks10', '모욕 판단 근거', 'Remakrs11'
 ]
 medilawyer_result_TB = pd.DataFrame(saved_results, columns=columns)
 result_file = f"{folder_path}\\medilawyer_result.xlsx"

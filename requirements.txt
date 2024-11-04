@@ -3,5 +3,3 @@ pandas
 requests
 datetime
 tqdm
-pickle
-os
